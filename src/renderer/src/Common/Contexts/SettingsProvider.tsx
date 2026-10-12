@@ -37,7 +37,8 @@ export function SettingsProvider({ children }: SettingsProviderProps) {
       applyTagsOnSourceAssociation: await get('applyTagsOnSourceAssociation', true, sendError),
       autoUpdatingEnabled: await get('autoUpdatingEnabled', true, sendError),
       showPatchNotesOnUpdate: await get('showPatchNotesOnUpdate', true, sendError),
-      taggableTagOrder: await get('taggableTagOrder', 'sideBar', sendError)
+      taggableTagOrder: await get('taggableTagOrder', 'sideBar', sendError),
+      useCustomDB: await get('useCustomDB', false, sendError) == true,
     }),
     [sendError]
   )

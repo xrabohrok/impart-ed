@@ -10,7 +10,8 @@ declare global {
       autoUpdatingEnabled: boolean
       applyTagsOnSourceAssociation: boolean
       showPatchNotesOnUpdate: boolean
-      taggableTagOrder: 'alphabetical' | 'sideBar'
+      taggableTagOrder: 'alphabetical' | 'sideBar',
+      useCustomDB: boolean
     }
 
     interface Dimensions {

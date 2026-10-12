@@ -12,6 +12,8 @@ interface Config {
   applyTagsOnSourceAssociation: boolean
   showPatchNotesOnUpdate: boolean
   taggableTagOrder: 'alphabetical' | 'sideBar'
+  useCustomDB: boolean
+  customDB: string
 }
 
 const schema: Schema<Config> = {
@@ -32,7 +34,9 @@ const schema: Schema<Config> = {
   },
   taggableTagOrder: {
     default: 'sideBar'
-  }
+  },
+  customDB: {type: "string"},
+  useCustomDB: { type:"boolean", default: false}
 }
 
 export const store = new Store({

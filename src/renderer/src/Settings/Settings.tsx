@@ -10,10 +10,12 @@ import InfoIcon from '@mui/icons-material/InfoRounded'
 import { About } from './About/About'
 import { Updates } from './Updates'
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt'
+import SaveIcon from '@mui/icons-material/Save'
 import { Tagging } from './Tagging'
 import LabelIcon from '@mui/icons-material/Label'
+import { DatabaseSettings } from './DatabaseSettings'
 
-type SettingsType = 'updates' | 'directories' | 'hiddenItems' | 'about' | 'tagging'
+type SettingsType = 'updates' | 'directories' | 'hiddenItems' | 'about' | 'tagging' | 'dbsettings'
 
 export interface SettingsProps {
   onClose?: () => void
@@ -54,6 +56,7 @@ export function Settings({ onClose, onShowPatchNotes }: SettingsProps) {
                 }}
               >
                 <Tab label="Directories" value="directories" icon={<FolderIcon />} />
+                <Tab label="Database File" value="dbsettings" icon={<SaveIcon />} />
                 <Tab label="Tagging" value="tagging" icon={<LabelIcon />} />
                 <Tab label="Hidden Items" value="hiddenItems" icon={<HideImageIcon />} />
                 <Tab label="Updates" value="updates" icon={<SystemUpdateAltIcon />} />
@@ -62,6 +65,7 @@ export function Settings({ onClose, onShowPatchNotes }: SettingsProps) {
             </Stack>
             <Box flex={1} p={1} pr={8} height="100%" sx={{ overflowY: 'scroll' }}>
               {selectedTab === 'directories' && <IndexedDirectoriesSettings />}
+              {selectedTab === 'dbsettings' && <DatabaseSettings />}
               {selectedTab === 'tagging' && <Tagging />}
               {selectedTab === 'hiddenItems' && <HiddenItems />}
               {selectedTab === 'updates' && <Updates onShowPatchNotes={onShowPatchNotes} />}
